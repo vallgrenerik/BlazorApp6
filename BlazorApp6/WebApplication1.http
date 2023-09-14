@@ -1,0 +1,47 @@
+@WebApplication1_HostAddress = http://localhost:5226
+@accountPrefix = /account
+@tempEmail = erik@test.se
+@tempPassword = Testar1234!
+@token = CfDJ8LniMTOToExIkvB71m1ZKxdW3LKtqqGuVFaDljqxQCW6kJfVEqxZrxoGe45t9iw4sQYCXByLpfmMKCrDRq1v-zxY_du0msUAm3PbH-ZLqT1MbGlbFRZu_Km9juRAsrJ88H1zNisECn9zRgqTs8wOdgCS8RXDL8IND0zgRi2TgcMbUb2OOimMWjkrP-Rpy5om2r5giiMsq68siGICGO2VW3h1Qd9pad8euKvoOTfb2rGGS_E_G5NuhN6SB7jhiLbduInGhN2dLTn7vEzpUBodOZB0fWcjV8-UMzHQdr8njoszUow0Mz5KC4AkrQe11FUMJ5wIHk_NFbbjNIRS8qyGuMx1BZKWU1l4etE-efse-TMA5Cg2hO7jejr5wQ_ydAd07S7BXbl-TXutY7JbDxkYJXGN3PX2wkepJIXfQgMY9Yx-_1HP5uD6wEdu4UdkNkkGk9obt49v-JkpNZSNOVBi6X8hQ15GIaOH5_THtR5KcLKeMff5Ba6cJBtTE0HXq9Ees9x3PDGOcAqU5fS6XPImTnNA9g_NrcLuwwCMszi8FYkoUy3p3Ikt4WysT5aWJeRPWFfLTbBzW1SbtnLgHnPDSh5uwz1NShE7L37fK7T_q3sVr3bsRnFAvLdkHfbfOmQz-eLjUShlzpL2fbu1jGK_fj2RXrJmDrhoKKwySR7bMTrxO2TyZnFABAu-4-5jbFu2YQ
+@refreshToken =_OLD_CfDJ8LniMTOToExIkvB71m1ZKxfwaNjT0Sc6zKVObQ_0GvEOAAI-pnpvmYVVSwHwE-l9BfG7l02wyUdBJIgJtnl3mjtDRn1LKi7qVo6g8H_3mYTQF9NWGeZH7BEVaziBafmR7NPouV2lE0xCis0kXHw4JIzVw0qZGgDZUz6Fnf82qK27rrPN2UZxTVjzKY0KcYa2XC7SSAB3jBGF8PrdAo7-3g2DWukYiJQZJHQWRGJ3dUg7t6bFnA1gn46v0ba1vKlIX5OgriT52eVkW69guPNlthGP7YlGkm-s1tAbb5oL0BNEAmOXjEmuHzxckPq_fnVXwRhz3bKMim5gjE4h7QUk8O8hsl_NlBjfF-m34jA5I7MBsXGWpXZgirKsuHNPb8y8DtCkSwkHiAdiS-SvHhUBiPzQJxAv_ktQ23klCyaYI4KhsgZNvCnWgnfTlmpp_PxPIfwDU0xNY30B4kUneENulJ6XHZSVzQb592nfvyeYOkzDwy6ja65CbdZerE1T0Ne0N3yrPXTlceuIJdFPHZDVaC25WWP4X2OY0Q1CWgPGhUw1a03wIQA5XC4_K3OJ2ECdHzlyC9crlbvNSfJNvfFCZRyFSofbZqz-MNyALRbra1jmifyFBnVCIFMHqHpnDfEX19nApYBGvprutAOCAjDDFPJ9AuO4chDIuCiv7xbcPVdRVZb8WRQDTMFa-aVArKaUwA
+
+
+GET {{WebApplication1_HostAddress}}/weatherforecast/
+Authorization: Bearer {{token}}
+
+
+###
+
+POST {{WebApplication1_HostAddress}}{{accountPrefix}}/register
+Content-Type: application/json
+
+{ 
+	"email": "{{tempEmail}}",
+	"password": "{{tempPassword}}"  
+}
+
+###
+POST {{WebApplication1_HostAddress}}{{accountPrefix}}/login
+Content-Type: application/json
+
+{ 
+	"email": "{{tempEmail}}",
+	"password": "{{tempPassword}}"  
+}
+
+###
+
+
+POST {{WebApplication1_HostAddress}}{{accountPrefix}}/refresh
+Content-Type: application/json
+
+{ 
+	"email": "{{tempEmail}}",
+	 "refreshToken": "{{refreshToken}}"
+}
+
+###
+
+GET {{WebApplication1_HostAddress}}/weatherforecast
+Authorization: Bearer CfDJ8LniMTOToExIkvB71m1ZKxcTJsA4mxA1UdJz5rjd49XG018-IMkfIkry89DnL9NVi1_flYVheLN4lKTQuQiuaCPncR9POxdSzz5Lio6DW2TJK4QaN5F8Zr0Jnw3HlFrRFXfGwHpThupkyOpaPYtOTCkHXvEytdg-p9d5ppTARn4IO7R88NPlARF19qmvDrerUQeJj0ZbzO8Ef6mAya_fRmiOtTGdkraSEiPkvF3YJF0QsIuuVhjQFxHZ4RvkYW20jsfp36ppBrvVshAGK62I_5bjLSNDdmZHLOlI_2qhtvidAKI0G1h6ceUFFYJNDND6RcZ9jDZ2zpv64sCxayCmVJXzvCCf75efss0QjOMuuKNMXoOdqcRWg4z1-cTwGb8vRaQnBRWm1EHj-fj5eT0TZxAGRK0heVNB7o97E4-YfhK_kIW9e_zb6aJWjRIrqTDVA1Fzei3QgATLdWAey73k75M-Ro-xQMYXAcfBBCeHj3ovkf_8nqoU0Q0JV8v0yDIIf2OAtlm8pvJarZp6bHmh_2ojoN8LCI4y1BhvwzKIR43w1FAtBlmFVhQwrG9Xq6MwUhZu5BvN4C1SCoTMTNEBKE5U_fYGRQQU8aeNL0UEtjWQN1rsDplsV5Sdh0UsMr7qA_KOSpnuyzqalytN6aGdpafNTv-7X5rA8s06p24_fFg-Ua9WwZgLN7r_g6RfndflSw
+###
